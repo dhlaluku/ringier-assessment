@@ -53,7 +53,7 @@ async def return_value():
         with open('tech_assess.json', 'r') as file:
             data = json.load(file)
     except FileNotFoundError as e:
-        logging.error("The tech_assess.json was not found on root module file path")
+        logging.error(f'Exception occured: {e}')
         return {"message": "The tech_assess.json was not found on local file path"}
 
     return {"return_value" : data['tech']['return_value']}
@@ -69,11 +69,11 @@ async def update_return_value(value: int):
             json.dump(data, json_file)
             
     except FileNotFoundError as e:
-        logging.error("The tech_assess.json was not found on root module file path")
+        logging.error(f'Exception occured: {e}')
         return {"message": "The tech_assess.json was not found on local file path"}
     
     return {
-        "message": "return_value updates successfully"
+        "message": f'return_value updated successfully with value: {value}'
     }
 
 if __name__ == "__main__":

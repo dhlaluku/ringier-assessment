@@ -1,1 +1,6 @@
-{"tech": {"return_value": 1337}}
+{
+    "tech": {
+      "return_value": 1337
+    }
+}
+  
