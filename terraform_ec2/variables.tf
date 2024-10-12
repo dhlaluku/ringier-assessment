@@ -37,7 +37,7 @@ variable "instance_name" {
 }
 
 variable "is_graviton" {
-  default     = true
+  default     = false
   type        = bool
   description = "(Optional) Build Graviton based version of the instance"
 }

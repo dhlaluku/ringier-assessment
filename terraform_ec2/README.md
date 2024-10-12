@@ -3,6 +3,17 @@
 - The user has an exisiting  VPC network defined in the deployment region and the ID of that network will be provided as an input variable. The module will create a VPC network if none is provided
 - The VPC to attach to the bastion instance has atleast 1 subnet defined and its ID will supplied as input variable
 - The ssh key is defined in AWS and will be supplied as input variable 
+
+### How to Use this module
+In the current working working directory, create your `terraform.tfvars` files with the following required attributes
+```bash
+vpc           = "<your vpc ID>" # The ID of the VPC in the region where the EC2 instance is built. The default VPC should suffice for this execise
+subnet        = "<subnet Id in the VPC>" # Should be defined in the VPC thats being used for the EC2
+keyname       = "<ssh keyname>" # Should available in AWS EC ssh keys
+```
+
+If the user wants to build a graviton based EC2 instance, specify the `is_graviton` variable in the `terraform.tfvars` file and set it to true. The dafult option is false and builds the `AMD/x86_64` based architecture
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

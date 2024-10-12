@@ -31,7 +31,7 @@ module "ec2-instance" {
   count              = var.is_graviton ? 0 : 1
   source             = "./modules/ec2"
   instance_type      = var.instance_type
-  instance_name      = "${var.instance_name}"
+  instance_name      = var.instance_name
   ami_id             = data.aws_ami.ami.id
   vpc                = data.aws_vpc.default.id
   subnet             = data.aws_subnet.subnet_id.id
