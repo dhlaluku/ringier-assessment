@@ -41,3 +41,8 @@ variable "is_graviton" {
   type        = bool
   description = "(Optional) Build Graviton based version of the instance"
 }
+
+variable "tags" {
+  description = "The default tags to attach to all the reources with this module"
+  default     = {}
+}

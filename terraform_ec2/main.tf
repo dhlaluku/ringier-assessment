@@ -37,6 +37,12 @@ module "ec2-instance" {
   subnet             = data.aws_subnet.subnet_id.id
   keyname            = data.aws_key_pair.key_name.key_name
   security_group_ids = [aws_security_group.security.id]
+
+  tags = {
+    "Instance-type" = "AMD"
+    "Terraform"     = "True"
+    Name            = "${var.instance_name}"
+  }
 }
 
 
@@ -44,21 +50,14 @@ module "ec2-instance-graviton" {
   count              = var.is_graviton ? 1 : 0
   source             = "./modules/ec2"
   instance_type      = "t4g.nano"
-  instance_name      = "${var.instance_name}-graviton"
   ami_id             = data.aws_ami.ami_arm.id
   vpc                = data.aws_vpc.default.id
   subnet             = data.aws_subnet.subnet_id.id
   keyname            = data.aws_key_pair.key_name.key_name
   security_group_ids = [aws_security_group.security.id]
+  tags = {
+    Name            = "${var.instance_name}-graviton"
+    "Instance-type" = "ARM"
+    "Terraform"     = "True"
+  }
 }
-
-# resource "tls_private_key" "default" {
-#   algorithm = "RSA"
-#   rsa_bits  = 4096
-# }
-
-# resource "aws_key_pair" "generated_key" {
-#   key_name   = var.keyname
-#   public_key = tls_private_key.default.public_key_openssh
-# }
-

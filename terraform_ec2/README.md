@@ -52,10 +52,11 @@ If the user wants to build a graviton based EC2 instance, specify the `is_gravit
 |------|-------------|------|---------|:--------:|
 | <a name="input_instance_name"></a> [instance\_name](#input\_instance\_name) | The name of the intance | `string` | `"default-ec2"` | no |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | The type of instance to deploy | `string` | `"t3.nano"` | no |
-| <a name="input_is_graviton"></a> [is\_graviton](#input\_is\_graviton) | (Optional) Build Graviton based version of the instance | `bool` | `true` | no |
+| <a name="input_is_graviton"></a> [is\_graviton](#input\_is\_graviton) | (Optional) Build Graviton based version of the instance | `bool` | `false` | no |
 | <a name="input_keyname"></a> [keyname](#input\_keyname) | Key name of the Key Pair to use for the instance; which can be managed using the aws\_key\_pair resource. | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The provider region | `string` | `"af-south-1"` | no |
 | <a name="input_subnet"></a> [subnet](#input\_subnet) | ID of the subnet in the vpc to attach the ec2 instance | `string` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | The default tags to attach to all the reources with this module | `map` | `{}` | no |
 | <a name="input_vpc"></a> [vpc](#input\_vpc) | ID of the vpc to attach the machine to | `string` | n/a | yes |
 
 ## Outputs
