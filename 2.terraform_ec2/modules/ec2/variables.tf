@@ -39,7 +39,7 @@ variable "instance_name" {
 
 variable "ami_id" {
   description = "The AMI ID to use for building this EC2 instance"
-
+  type = string
 }
 
 variable "security_group_ids" {
