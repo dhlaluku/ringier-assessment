@@ -1,4 +1,4 @@
-version=5.0
+version=1.0
 
 build:
 	export DOCKER_BUILDKIT=1

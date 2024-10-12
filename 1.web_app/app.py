@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 import subprocess as sp
 import json
@@ -7,6 +8,15 @@ import logging
 import uvicorn
 
 app = FastAPI()
+
+### Allows the application to be accessible from Web when it has been dockerized ###
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+    allow_credentials=True,
+)
 
 def execute_command(cmd: str):
     proc = sp.Popen(cmd, shell=True, stderr=sp.PIPE, stdout=sp.PIPE)
